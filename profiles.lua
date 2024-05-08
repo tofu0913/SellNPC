@@ -1,6 +1,10 @@
 -- Add items to existing profiles or create your own to sell groups of items using alias commands
 local profiles = {}
 
+profiles['conq'] = S{
+    'Centurion\'s Axe',
+}
+
 profiles['furrow'] = S{
 	'Acorn',
 	'Arrowwood Log',
