@@ -4,6 +4,7 @@
 ```
 sellnpc <item_name>	-- add item_name to sales queue. quotes not needed, accepts auto-translate. 
 sellnpc <profile_name> 	-- load a group of items from profiles.lua into the sales queue
+sellnpc all 	-- sell EVERYTHING in your inventory, yes!! EVERYTHING!!!
 ```
 Sales are now triggered by opening a shop window, you will need to queue items prior to this.
 
