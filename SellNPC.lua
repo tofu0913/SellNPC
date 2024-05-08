@@ -9,6 +9,8 @@ res_items = require('resources').items
 
 sales_que = {}
 
+require('coroutine')
+
 function get_item_res(item)
     for k,v in pairs(res_items) do
         if (v.en:lower() == item or v.enl:lower() == item) and not v.flags['No NPC Sale'] then
@@ -51,9 +53,28 @@ function initialize_shop(id, data)
     end
 end
 
+function sell_everything()
+    local num = 0
+    for index = 1, 80 do local item = windower.ffxi.get_items(0,index)
+        if item and item.status == 0 then
+            windower.packets.inject_outgoing(0x084,string.char(0x084,0x06,0,0,item.count,0,0,0,item.id%256,math.floor(item.id/256)%256,index,0))
+            windower.packets.inject_outgoing(0x085,string.char(0x085,0x04,0,0,1,0,0,0))
+            num = num + item.count
+            coroutine.sleep(math.random(0.2, 1.2))
+        end
+    end
+    if num > 0 then
+        windower.add_to_chat(207, '%s: Selling %d items.':format(_addon.name, num))
+    end
+end
+
 function sell_npc_command(...)
     local commands = {...}
     if not commands[1] then
+    elseif commands[1] == 'all' then
+        windower.add_to_chat(207, 'sell all')
+        sell_everything()
+
     elseif profiles[commands[1]] then
         for name in pairs(profiles[commands[1]]) do
             check_item(name, true)
