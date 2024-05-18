@@ -74,6 +74,11 @@ function sell_npc_command(...)
     elseif commands[1] == 'all' then
         windower.add_to_chat(207, 'sell all')
         sell_everything()
+        
+    elseif commands[1] == 'conq' then
+        windower.add_to_chat(207, 'sell all conq')
+        sell_everything()
+        windower.send_command('wait 3; input //cq impoor')
 
     elseif profiles[commands[1]] then
         for name in pairs(profiles[commands[1]]) do
