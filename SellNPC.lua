@@ -81,6 +81,8 @@ function sell_npc_command(...)
         windower.send_command('wait 3; input //cq impoor')
 
     elseif profiles[commands[1]] then
+		package.loaded['profiles'] = nil
+		profiles = require('profiles')
         for name in pairs(profiles[commands[1]]) do
             check_item(name, true)
         end
