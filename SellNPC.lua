@@ -39,6 +39,7 @@ function sell_all_items()
             windower.packets.inject_outgoing(0x084,string.char(0x084,0x06,0,0,item.count,0,0,0,item.id%256,math.floor(item.id/256)%256,index,0))
             windower.packets.inject_outgoing(0x085,string.char(0x085,0x04,0,0,1,0,0,0))
             num = num + item.count
+            coroutine.sleep(math.random(0.2, 1.2))
         end
     end
     sales_que = {}
