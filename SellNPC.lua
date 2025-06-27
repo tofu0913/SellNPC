@@ -75,7 +75,7 @@ function sell_npc_command(...)
         windower.add_to_chat(207, 'sell all')
         sell_everything()
         
-    elseif commands[1] == 'conq' then
+    elseif commands[1] == 'impoor' then
         windower.add_to_chat(207, 'sell all conq')
         sell_everything()
         windower.send_command('wait 3; input //cq impoor')
