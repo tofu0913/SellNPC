@@ -1,4 +1,4 @@
-_addon.command = 'SellNPC'
+_addon.commands = {'SellNPC', 'sn'}
 _addon.version = '2.0.0.3'
 _addon.author = 'Ivaar'
 _addon.name = 'SellNPC'
